@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MusicAPI</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">MusicAPI</p>
+          <h1>Busque músicas por nome, YouTube ou Spotify.</h1>
+        </div>
+        <form id="search-form" class="search">
+          <input
+            id="query"
+            name="query"
+            type="search"
+            placeholder="Ex: Daft Punk One More Time ou cole um link"
+            autocomplete="off"
+            required
+          />
+          <button id="submit" type="submit">Buscar</button>
+        </form>
+      </section>
+
+      <section id="status" class="status" hidden></section>
+
+      <section id="result" class="result" hidden>
+        <img id="thumbnail" alt="" />
+        <div class="details">
+          <h2 id="title"></h2>
+          <dl>
+            <div><dt>ID</dt><dd id="song-id"></dd></div>
+            <div><dt>Duração</dt><dd id="duration"></dd></div>
+            <div><dt>Cache expira</dt><dd id="expires"></dd></div>
+          </dl>
+          <div class="links">
+            <a id="youtube-link" target="_blank" rel="noreferrer" hidden>YouTube</a>
+            <a id="spotify-link" target="_blank" rel="noreferrer" hidden>Spotify</a>
+          </div>
+          <audio id="player" controls hidden></audio>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

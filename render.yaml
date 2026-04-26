@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: apimusic
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn musicapi.routes:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: APP_HOST
+        value: 0.0.0.0
+      - key: APP_DEBUG
+        value: false
+      - key: LOG_LEVEL
+        value: INFO
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: YTDLP_COOKIES_FILE
+        value: /etc/secrets/youtube-cookies.txt
+      - key: SPOTIFY_CLIENT_ID
+        sync: false
+      - key: SPOTIFY_CLIENT_SECRET
+        sync: false
